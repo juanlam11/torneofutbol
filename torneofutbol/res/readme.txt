@@ -1,0 +1,1 @@
+Esta carpeta sirve para agregar las imagenes y elementos accesorios de la aplicacion
