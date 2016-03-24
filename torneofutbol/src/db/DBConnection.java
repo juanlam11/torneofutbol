@@ -16,8 +16,6 @@ public class DBConnection {
 		System.err.println(e.getClass().getName() + ": " + e.getMessage());
 		System.exit(0);
 	}
-	JOptionPane msgbox= new JOptionPane();
 	System.out.println("Base de datos abierta exitosamente!");
-	JOptionPane.showMessageDialog(msgbox, "Base de datos abierta exitosamente!");
 	}
 }

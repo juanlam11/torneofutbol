@@ -2,26 +2,31 @@ package mundo;
 
 import java.util.ArrayList;
 
-public class Fase {
-	public static final int PUNTOS_GANADOR=3;
-	public static final int PUNTOS_PERDEDOR=0;
-	public static final int PUNTOS_EMPATE=1;
-	private int codigoFase;
-	private int numeroGrupos;
-	private ArrayList<Grupo> listaEquipos;
-	private int tipoFase;
-	private String nombreFase;
+abstract class Fase {
+	private int numEqClasificados;
+	private int maxEquiposFase;
+	private ArrayList<Equipo> listaEquiposClasificados;
+	private ArrayList<Equipo> listaEquiposEnLaFase;
 	private int codigoTorneo;
-	private boolean faseCompleta;
+			
+	abstract void jugarFase(ArrayList<Equipo> listaEquiposEnLaFase);
+	abstract void jugarPartido(Equipo local,Equipo visitante);
+	abstract void clasificarEquipo(int codigoEquipo);
 	
-	/**
-	 * Este es el constructor de la clase Fase
-	 * @param listaEquipos
-	 * @param tipoFase
-	 */
-	public Fase(ArrayList<String> listaEquipos, int tipoFase) {
-		
+	
+	public int getNumEqClasificados() {
+		return numEqClasificados;
 	}
-	
-
+	public int getMaxEquiposFase() {
+		return maxEquiposFase;
+	}
+	public ArrayList<Equipo> getListaEquiposClasificados() {
+		return listaEquiposClasificados;
+	}
+	public int getCodigoTorneo() {
+		return codigoTorneo;
+	}
+	public ArrayList<Equipo> getListaEquiposEnLaFase() {
+		return listaEquiposEnLaFase;
+	}	
 }
