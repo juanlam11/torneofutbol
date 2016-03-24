@@ -104,6 +104,7 @@ public class Jugador {
 	 * @return res
 	 */
 	public ArrayList<String> infoJugador() {
+		//TODO: Falta Implementar
 		ArrayList<String> res = new ArrayList<String>();
 		return res;
 	}
@@ -112,7 +113,7 @@ public class Jugador {
 	 * Este metodo es para registar un jugador en la base de datos 
 	 */
 	public void registrarJugador() {
-		
+		//TODO: Falta Implementar
 	}
 	
 	/**
@@ -120,7 +121,7 @@ public class Jugador {
 	 * @param codigoJugador
 	 */
 	public void eliminarJugador(int codigoJugador) {
-		
+		//TODO: Falta Implementar
 	}
 
 	

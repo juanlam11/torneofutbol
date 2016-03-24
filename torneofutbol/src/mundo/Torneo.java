@@ -15,8 +15,8 @@ public class Torneo {
 	 * @param numEquipos
 	 */
 	
-	public Torneo(String nombre, int numEquipos) {
-		
+	public Torneo(String nombre, int numEquipos, ArrayList<Equipo> listaEquipos) {
+		//TODO: Falta Implementar
 	}
 	
 	// ACCESORES Y MUTADORES DE LA CLASE //
@@ -49,26 +49,27 @@ public class Torneo {
 	// FIN DE ACCESORES Y MUTADORES DE LA CLASE //
 	
 	public void iniciarTorneo(int codigoTorneo) {
-		
+		//TODO: Falta Implementar
 	}
 	
 	public String crearInformeTorneo(int codigoTorneo) {
+		//TODO: Falta Implementar
 		return "";
 	}
 	
 	public void agregarEquipo(int codigoEquipo) {
-		
+		//TODO: Falta Implementar
 	}
 
 	public void eliminarEquipo(int codigoEquipo) {
-		
+		//TODO: Falta Implementar
 	}
 	
 	public void registrarTorneo() {
-		
+		//TODO: Falta Implementar
 	}
 	
 	public void eliminarTorneo() {
-		
+		//TODO: Falta Implementar
 	}
 }

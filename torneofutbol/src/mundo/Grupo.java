@@ -33,6 +33,7 @@ public class Grupo {
 	}
 	
 	public String getNombreGrupo() {
+		//TODO: Falta Implementar
 		return "";
 	}
 	
@@ -41,6 +42,7 @@ public class Grupo {
 	 * @return res
 	 */
 	public ArrayList<String> jugarTodosContraTodos() {
+		//TODO: Falta Implementar
 		ArrayList res = new ArrayList<String>();
 		return res;
 	}

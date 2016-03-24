@@ -128,7 +128,7 @@ public class Resultado {
 	 * Este metodo registra el resultado en la base de datos 
 	 */
 	public void registrarResultado() {
-		
+		//TODO: Falta Implementar
 	}
 	/**
 	 * Este metodo carga un resultado guardado en la base de datos 
