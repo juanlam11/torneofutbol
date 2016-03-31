@@ -3,19 +3,31 @@ package db;
 import java.sql.*;
 
 public class DBConnection {
-	
-	Connection c=null;
-	boolean baseAbierta=false;
-	
-	public DBConnection(){
-	try {
-		Class.forName("org.sqlite.JDBC");
-		c=DriverManager.getConnection("jdbc:sqlite:db/base.db");
-	}catch (Exception e) {
-		System.err.println(e.getClass().getName() + ": " + e.getMessage());
-		System.exit(0);
+
+	public static Connection connector(){
+		try {
+			Class.forName("org.sqlite.JDBC");
+			Connection conn=DriverManager.getConnection("jdbc:sqlite:db/base.db");
+			return conn;
+		}catch (Exception e) {
+			System.err.println(e.getClass().getName() + ": " + e.getMessage());
+			System.exit(0);
+			return null;
+		}
 	}
-	baseAbierta=true;
-	System.out.println("Base de datos abierta exitosamente!");
+	
+	public static ResultSet executeQuery(String q) {
+		Connection conn=connector();
+		ResultSet rs = null;
+		try {
+		String query=q;
+		PreparedStatement pst=conn.prepareStatement(query);
+		rs = pst.executeQuery();
+		pst.close();
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		return rs;
 	}
 }

@@ -2,6 +2,10 @@ package mundo;
 
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
+import image.*;
+import db.DBConnection;
+
+import java.sql.*;
 
 public class Equipo {
 	private int codigoEquipo;
@@ -29,6 +33,10 @@ public class Equipo {
 	
 	public int getCodigoEquipo() {
 		return codigoEquipo;
+	}
+	
+	public void setCodigoEquipo(int codigoEquipo) {
+		this.codigoEquipo=codigoEquipo;
 	}
 
 	public String getNombreEquipo() {
@@ -89,17 +97,47 @@ public class Equipo {
 	/**
 	 * PRECAUCION! :
 	 * ESTOS METODOS OPERAN A NIVEL DE LA BASE DE DATOS
+	 * recuerde liberar los recursos de la BD con el metodo ResultSet.close()
 	 */
 	
 	public void registrarEquipo() {
 		//TODO: Falta Implementar
+
 	}
 	
 	public void eliminarEquipo() {
 		//TODO: Falta implementar
 	}
 	
-	public void cargarEquipo() {
-		//TODO: Falta implementar,  
+	public ArrayList<String> cargarEquipo(int codigoEquipo) {
+		//TODO: Falta implementar
+		//TODO: que cuadrar lo de la carga del escudo: HECHO
+		//TODO: Falta el arraylist de jugadores
+		
+		ArrayList<String> list = null;
+		try {
+		String q="SELECT * FROM Equipo WHERE codigoEquipo="+codigoEquipo;
+		ResultSet res=DBConnection.executeQuery(q);
+		
+		setCodigoEquipo(Integer.parseInt(res.getString("codigoEquipo")));
+		setDiferenciaGoles(Integer.parseInt(res.getString("diferenciaGoles")));
+		setEscudo(Imgconverter.base64StringToImg(res.getString("escudo")));
+		setGolesAnotados(Integer.parseInt(res.getString("golesAnotados")));
+		setGolesRecibidos(Integer.parseInt(res.getString("golesRecibidos")));
+		setNombreDT(res.getString("nombreDT"));
+		setNombreEquipo(res.getString("nombreEquipo"));
+		setNumAmarillas(Integer.parseInt(res.getString("numAmarillas")));
+		setNumRojas(Integer.parseInt(res.getString("numRojas")));
+		
+		res.close();
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+	
+	public void modificarEquipo() {
+		//TODO: Falta implementar
 	}
 }
