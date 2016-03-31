@@ -11,7 +11,7 @@ public class Imgconverter {
 		final ByteArrayOutputStream os = new ByteArrayOutputStream();
 		try {
 			ImageIO.write(img, formatName, Base64.getEncoder().wrap(os));
-			return os.toString(StandardCharsets.ISO_8859_1.name());
+			return os.toString(StandardCharsets.UTF_8.name());
 		} catch (final IOException ioe) {
 			throw new UncheckedIOException(ioe);
 		}
