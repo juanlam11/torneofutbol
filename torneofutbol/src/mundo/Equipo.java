@@ -86,11 +86,20 @@ public class Equipo {
 		this.numRojas = numRojas;
 	}
 	
+	/**
+	 * PRECAUCION! :
+	 * ESTOS METODOS OPERAN A NIVEL DE LA BASE DE DATOS
+	 */
+	
 	public void registrarEquipo() {
 		//TODO: Falta Implementar
 	}
 	
 	public void eliminarEquipo() {
 		//TODO: Falta implementar
+	}
+	
+	public void cargarEquipo() {
+		//TODO: Falta implementar,  
 	}
 }

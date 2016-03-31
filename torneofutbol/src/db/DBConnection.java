@@ -2,11 +2,10 @@ package db;
 
 import java.sql.*;
 
-import javax.swing.JOptionPane;
-
 public class DBConnection {
 	
 	Connection c=null;
+	boolean baseAbierta=false;
 	
 	public DBConnection(){
 	try {
@@ -16,6 +15,7 @@ public class DBConnection {
 		System.err.println(e.getClass().getName() + ": " + e.getMessage());
 		System.exit(0);
 	}
+	baseAbierta=true;
 	System.out.println("Base de datos abierta exitosamente!");
 	}
 }
