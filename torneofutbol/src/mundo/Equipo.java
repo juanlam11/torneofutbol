@@ -19,6 +19,9 @@ public class Equipo {
 	private int numAmarillas;
 	private int numRojas;
 	
+	public Equipo() {
+		
+	}
 	
 	public Equipo(int codigoEquipo, String nombreEquipo, String nombreDT, BufferedImage escudo,
 			ArrayList<Jugador> listaJugadores) {
@@ -29,7 +32,6 @@ public class Equipo {
 		this.escudo = escudo;
 		this.listaJugadores = listaJugadores;
 	}
-	
 	
 	public int getCodigoEquipo() {
 		return codigoEquipo;
@@ -98,6 +100,7 @@ public class Equipo {
 	 * PRECAUCION! :
 	 * ESTOS METODOS OPERAN A NIVEL DE LA BASE DE DATOS
 	 * recuerde liberar los recursos de la BD con el metodo ResultSet.close()
+	 * SE DEBERIA DE PASAR LOS EQUIPOS AL PAQUETE DE LA BASE DE DATOS
 	 */
 	
 	public void registrarEquipo() {
@@ -109,10 +112,10 @@ public class Equipo {
 		//TODO: Falta implementar
 	}
 	
-	public ArrayList<String> cargarEquipo(int codigoEquipo) {
+	public void cargarEquipo(int codigoEquipo) {
 		//TODO: Falta implementar
 		//TODO: que cuadrar lo de la carga del escudo: HECHO
-		//TODO: Falta el arraylist de jugadores
+		//TODO: Falta el arraylist de jugadores 
 		
 		ArrayList<String> list = null;
 		try {
@@ -129,12 +132,13 @@ public class Equipo {
 		setNumAmarillas(Integer.parseInt(res.getString("numAmarillas")));
 		setNumRojas(Integer.parseInt(res.getString("numRojas")));
 		
-		res.close();
+		q="SELECT * FROM Equipo WHERE codigoEquipo="+codigoEquipo;
+		res=DBConnection.executeQuery(q);
+		
 		}
 		catch (Exception e) {
 			e.printStackTrace();
 		}
-		return list;
 	}
 	
 	public void modificarEquipo() {
