@@ -1,6 +1,11 @@
 package mundo;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.ArrayList;
+
+import db.DBConnection;
 
 public class Jugador {
 	
@@ -97,6 +102,10 @@ public class Jugador {
 	public int getCodigoJugador() {
 		return codigoJugador;
 	}
+	
+	public void setCodigoJugador(int codigoJugador) {
+		this.codigoJugador=codigoJugador;
+	}
 	// FIN DE ACCESORES Y MUTADORES DE LA CLASE //	
 	
 	/**
@@ -126,6 +135,30 @@ public class Jugador {
 
 	public void cargarJugador(int codigoJugador) {
 		//TODO: Falta Implementar
+		try {
+			String q="SELECT * FROM Jugador WHERE codigoJugador="+codigoJugador;
+			Connection conn=DBConnection.connector();
+			ResultSet res = null;
+			String query=q;
+			PreparedStatement pst=conn.prepareStatement(query);
+			res = pst.executeQuery();
+			
+			while(res.next()) {
+				setCodigoJugador(res.getInt("codigoJugador"));
+				setNombreJugador(res.getString("nombreJugador"));
+				setNumJugador(res.getInt("numJugador"));
+				setGolesAnotados(res.getInt("golesAnotados"));
+				setNumAsistencias(res.getInt("numAsistencias"));
+				setNumAmarillas(res.getInt("numAmarillas"));
+				setNumRojas(res.getInt("numRojas"));
+			}
+			pst.close();
+			res.close();
+			
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 }

@@ -16,6 +16,7 @@ public class EquipoTest {
 		}
 		catch (Exception e) {
 			e.getMessage();
+			fail("Se jodio esta vaina");
 		}
 	}
 
