@@ -11,7 +11,7 @@ public class Grupo {
 	private Equipo equipoD;
 	private int codigoTorneo;
 	private int codigoGrupo;
-	private ArrayList<String> clasificadosTodosContraTodos;
+	private ArrayList<Equipo> clasificadosTodosContraTodos;
 	
 	/**
 	 * Constructor de la clase Grupo
@@ -41,9 +41,9 @@ public class Grupo {
 	 * Este metodo debe jugar el todos contra todos y sacar dos clasificados
 	 * @return res
 	 */
-	public ArrayList<String> jugarTodosContraTodos() {
+	public ArrayList<Equipo> jugarTodosContraTodos() {
 		//TODO: Falta Implementar
-		ArrayList res = new ArrayList<String>();
+		ArrayList res = new ArrayList<Equipo>();
 		return res;
 	}
 

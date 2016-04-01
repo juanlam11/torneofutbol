@@ -7,7 +7,7 @@ import db.DBConnection;
 
 import java.sql.*;
 
-public class Equipo {
+public class Equipo implements EventosJuego {
 	private int codigoEquipo;
 	private String nombreEquipo;
 	private String nombreDT;
@@ -152,5 +152,34 @@ public class Equipo {
 
 	public void modificarEquipo() {
 		//TODO: Falta implementar
+	}
+		
+	public void recibirGol() {
+		//TODO: Falta implementar 
+	}
+	
+	// IMPLEMENTACION
+	@Override
+	public void roja() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void amarilla() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void gol() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void asistencia() {
+		// TODO Auto-generated method stub
+		
 	}
 }

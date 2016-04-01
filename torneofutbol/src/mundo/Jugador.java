@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 import db.DBConnection;
 
-public class Jugador {
+public class Jugador implements EventosJuego{
 	
 	private int codigoJugador;
 	private String nombreJugador;
@@ -163,7 +163,25 @@ public class Jugador {
 			e.printStackTrace();
 		}
 	}
+	@Override
+	public void roja() {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void amarilla() {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void gol() {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void asistencia() {
+		// TODO Auto-generated method stub
+		
+	}
 	
-	//TODO: FALTAN METODOS PARA INCREMENTAR EN 1 LOS VALORES
-
 }
