@@ -12,7 +12,7 @@ public class JugadorTest {
 	}
 
 	@Test
-	public void testJugadorIntStringIntIntIntIntInt() {
+	public void testJugadorOver1() {
 		fail("Not yet implemented");
 	}
 

@@ -17,8 +17,11 @@ public class Jugador {
 	private int numAmarillas;
 	private int numRojas;
 	
+	public Jugador() {
+		
+	}
 	/**
-	 * Esta clase tiene dos constructores en sobrecarga, este es para abrir un jugador e ir llenando
+	 * Esta clase tiene tres constructores en sobrecarga, este es para abrir un jugador e ir llenando
 	 * los datos
 	 * @param nombreJugador
 	 * @param numJugador
@@ -28,7 +31,7 @@ public class Jugador {
 		this.numJugador = numJugador;
 	}
 	/**
-	 * Esta clase tiene dos constructores en sobrecarga, este es para cuando se tiene informacion acumulada
+	 * Esta clase tiene tres constructores en sobrecarga, este es para cuando se tiene informacion acumulada
 	 * y se desea partir de ahi y empezar a llenar
 	 * @param codigoJugador
 	 * @param nombreJugador
@@ -160,5 +163,7 @@ public class Jugador {
 			e.printStackTrace();
 		}
 	}
+	
+	//TODO: FALTAN METODOS PARA INCREMENTAR EN 1 LOS VALORES
 
 }
