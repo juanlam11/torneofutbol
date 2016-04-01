@@ -15,19 +15,4 @@ public class DBConnection {
 			return null;
 		}
 	}
-	
-	public static ResultSet executeQuery(String q) {
-		Connection conn=connector();
-		ResultSet rs = null;
-		try {
-		String query=q;
-		PreparedStatement pst=conn.prepareStatement(query);
-		rs = pst.executeQuery();
-		pst.close();
-		}
-		catch (Exception e) {
-			e.printStackTrace();
-		}
-		return rs;
-	}
 }

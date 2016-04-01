@@ -124,6 +124,8 @@ public class Jugador {
 		//TODO: Falta Implementar
 	}
 
-	
+	public void cargarJugador(int codigoJugador) {
+		//TODO: Falta Implementar
+	}
 
 }

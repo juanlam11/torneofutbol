@@ -18,11 +18,15 @@ public class Equipo {
 	private int diferenciaGoles;
 	private int numAmarillas;
 	private int numRojas;
-	
+
 	public Equipo() {
-		
+
 	}
-	
+
+	public Equipo(int codigoEquipo) {
+		cargarEquipo(codigoEquipo);
+	}
+
 	public Equipo(int codigoEquipo, String nombreEquipo, String nombreDT, BufferedImage escudo,
 			ArrayList<Jugador> listaJugadores) {
 		super();
@@ -32,11 +36,11 @@ public class Equipo {
 		this.escudo = escudo;
 		this.listaJugadores = listaJugadores;
 	}
-	
+
 	public int getCodigoEquipo() {
 		return codigoEquipo;
 	}
-	
+
 	public void setCodigoEquipo(int codigoEquipo) {
 		this.codigoEquipo=codigoEquipo;
 	}
@@ -95,52 +99,57 @@ public class Equipo {
 	public void setNumRojas(int numRojas) {
 		this.numRojas = numRojas;
 	}
-	
+
 	/**
 	 * PRECAUCION! :
 	 * ESTOS METODOS OPERAN A NIVEL DE LA BASE DE DATOS
 	 * recuerde liberar los recursos de la BD con el metodo ResultSet.close()
 	 * SE DEBERIA DE PASAR LOS EQUIPOS AL PAQUETE DE LA BASE DE DATOS
 	 */
-	
+
 	public void registrarEquipo() {
 		//TODO: Falta Implementar
 
 	}
-	
+
 	public void eliminarEquipo() {
 		//TODO: Falta implementar
 	}
-	
+
 	public void cargarEquipo(int codigoEquipo) {
-		//TODO: Falta implementar
-		//TODO: que cuadrar lo de la carga del escudo: HECHO
 		//TODO: Falta el arraylist de jugadores 
-		
-		ArrayList<String> list = null;
+
 		try {
-		String q="SELECT * FROM Equipo WHERE codigoEquipo="+codigoEquipo;
-		ResultSet res=DBConnection.executeQuery(q);
-		
-		setCodigoEquipo(Integer.parseInt(res.getString("codigoEquipo")));
-		setDiferenciaGoles(Integer.parseInt(res.getString("diferenciaGoles")));
-		setEscudo(Imgconverter.base64StringToImg(res.getString("escudo")));
-		setGolesAnotados(Integer.parseInt(res.getString("golesAnotados")));
-		setGolesRecibidos(Integer.parseInt(res.getString("golesRecibidos")));
-		setNombreDT(res.getString("nombreDT"));
-		setNombreEquipo(res.getString("nombreEquipo"));
-		setNumAmarillas(Integer.parseInt(res.getString("numAmarillas")));
-		setNumRojas(Integer.parseInt(res.getString("numRojas")));
-		
-		q="SELECT * FROM Equipo WHERE codigoEquipo="+codigoEquipo;
-		res=DBConnection.executeQuery(q);
-		
+			String q="SELECT * FROM Equipo WHERE codigoEquipo="+codigoEquipo;
+			Connection conn=DBConnection.connector();
+			ResultSet res = null;
+			String query=q;
+			PreparedStatement pst=conn.prepareStatement(query);
+			res = pst.executeQuery();
+
+			while (res.next()) {
+				setCodigoEquipo(res.getInt("codigoEquipo"));
+				setDiferenciaGoles(res.getInt("diferenciaGoles"));
+				setEscudo(Imgconverter.base64StringToImg(res.getString("escudo")));
+				setGolesAnotados(res.getInt("golesAnotados"));
+				setGolesRecibidos(res.getInt("golesRecibidos"));
+				setNombreDT(res.getString("nombreDT"));
+				setNombreEquipo(res.getString("nombreEquipo"));
+				setNumAmarillas(res.getInt("numAmarillas"));
+				setNumRojas(res.getInt("numRojas"));
+			}
+			pst.close();
+			res.close();
 		}
 		catch (Exception e) {
 			e.printStackTrace();
 		}
+		
+		// A PARTIR DE AQUI VENDRIA LA CARGA DEL ARRAY DE JUGADORES
+
+
 	}
-	
+
 	public void modificarEquipo() {
 		//TODO: Falta implementar
 	}
